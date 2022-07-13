@@ -21,13 +21,15 @@ async function step(output) {
   try {
     resp = await startPrediction(output);
     const predictionID = resp['prediction_id'];
-    const headline = resp['headline'];
+    headline = resp['headline'];
     output = await waitForPrediction(predictionID);
   } catch (error) {
     started = false;
     console.log("Caught error:", error);
     return;
   }
+  console.log('HEADLINE');
+  console.log(headline);
   step(output);
   show_image(output, headline);
 }
