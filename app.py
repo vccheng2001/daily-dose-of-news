@@ -34,8 +34,8 @@ def predict():
     # instantiate news API client
     print('Instantiating News API Client......')
     news_client = NewsAPIClient()
-    print('Fetching news headlines.......')
-    headlines = news_client.get_headlines()
+    print(f'Fetching news headlines for {category} category.......')
+    headlines = news_client.get_headlines(category)
     headline = random.choice(headlines)
     print('Processing new headline......', headline)
 

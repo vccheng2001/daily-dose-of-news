@@ -3,8 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js"></script>
     <script src="/static/index.js"></script>
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
     <style>
       html {
           background-color: #FCFCFA;
@@ -26,6 +29,19 @@
         margin: 1em auto;
         padding: 0.25em 0.5em;
         width: 66%;
+      }
+
+      #heading {
+        background-color: rgba(255,255,255,0.7);
+        /* border-radius: 0.25em;
+        border: 1px solid slategray; */
+        display: block;
+        font-family: Helvetica Neue;
+        font-size: 30px;
+        font-weight: 350;
+        margin: 1em auto;
+        /* padding: 0.5em 0.5em; */
+        width: 35%;
       }
 
       .center {
@@ -82,8 +98,20 @@
     </style>
   </head>
   <body>
-    <input id="category" placeholder="Choose news category (business, entertainment, general, health, science, sports, technology)"/>
-    <div id="loading"><img src="/static/loading.svg" /></div>
+    <h3 id="heading">Your Daily Dose of News 🗞 </h3>
+
+    <select id="category">
+      <option>general</option>
+      <option>business</option>
+      <option>entertainment</option>
+      <option>health</option>
+      <option>science</option>
+      <option>sports</option>
+      <option>technology</option>
+    </select>
+
+    <!-- <input id="category" placeholder="Choose news category (business, entertainment, general, health, science, sports, technology)"/> -->
+    <div id="loading"><img src="/static/loading.svg"></div>
 
     <!-- <div> -->
     <img id="img" src="" alt="" class="center">
