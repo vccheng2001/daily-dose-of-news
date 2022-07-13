@@ -36,18 +36,20 @@ def predict():
     news_client = NewsAPIClient()
     print('Fetching news headlines.......')
     headlines = news_client.get_headlines()
-    print('Processing new headline......', headlines[0])
+    headline = headlines[1]
+    print('Processing new headline......', headline)
+
     prediction = replicate.predictions.create(
             version=version,
             input={
-                "prompt":str(headlines[0]),
+                "prompt":str(headline),
                 "model": 'cc12m_32x1024_mlp_mixer_openclip_laion2b_ViTB32_256x256_v0.4.th',
                 "prior": False,
                 "grid": '1x1',
                 "seed": random.randint(0, 2**15-1),
             },
     )
-    return jsonify({"prediction_id": prediction.id})
+    return jsonify({"prediction_id": prediction.id, "headline":headline})
 
 
 @app.route("/api/predictions/<prediction_id>", methods=["GET"])

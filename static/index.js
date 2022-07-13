@@ -1,4 +1,5 @@
 var prompt, promptValue, started, draw, svgPaths;
+var headline;
 
 window.onload = async function() {
   draw = SVG().addTo('body').attr({
@@ -18,7 +19,14 @@ window.onload = async function() {
 
 async function step(output) {
   try {
-    const predictionID = await startPrediction(output);
+    resp = await startPrediction(output);
+    console.log('resp');
+    console.log(resp);
+    const predictionID = resp['prediction_id'];
+    const headline = resp['headline'];
+    console.log('headline');
+    console.log(headline);
+
     output = await waitForPrediction(predictionID);
   } catch (error) {
     started = false;
@@ -27,7 +35,7 @@ async function step(output) {
     return;
   }
   step(output);
-  show_image(output, 600,600, '');
+  show_image(output, headline, 600,600, '');
 }
 
 async function startPrediction(paths) {
@@ -45,7 +53,7 @@ async function startPrediction(paths) {
     throw new Error(resp.statusText);
   }
   resp = await resp.json();
-  return resp["prediction_id"]
+  return resp;//["prediction_id"]]
 }
 
 async function waitForPrediction(predictionID) {
@@ -69,9 +77,11 @@ async function waitForPrediction(predictionID) {
 }
 
 
-function show_image(src, width, height, alt) {
+function show_image(img, headline, width, height, alt) {
 
-  document.getElementById("img").src=src;
+  document.getElementById("img").src=img;
+  console.log(headline);
+  document.getElementById("headline").innerHTML=headline;
 
 
   // var img = document.createElement("img");
