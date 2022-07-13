@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js"></script>
+    <script src="/static/index.js"></script>
+    <style>
+      html {
+          background-color: #FCFCFA;
+      }
+
+      body, html {
+          margin: 0;
+          padding: 0;
+      }
+
+      #prompt {
+        background-color: rgba(255,255,255,0.7);
+        border-radius: 0.25em;
+        border: 1px solid slategray;
+        display: block;
+        font-family: Helvetica Neue;
+        font-size: 24px;
+        font-weight: 300;
+        margin: 1em auto;
+        padding: 0.25em 0.5em;
+        width: 66%;
+      }
+
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
+
+      #loading {
+          display: none;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 105px;
+          height: 105px;
+          margin-left: -52px;
+          margin-top: -52px;
+      }
+
+      #loading.shown {
+          display: block;
+      }
+
+      svg {
+        position: absolute;
+        top: 0;
+        z-index: -1;
+      }
+
+      #footer {
+          opacity: 0.8;
+          position: fixed;
+          width: 50%;
+          max-width: 500px;
+          left: 50%;
+          transform: translateX(-50%);
+          padding: 4px;
+
+          bottom: 10px;
+          text-align: center;
+          color: #555;
+          /*background-color: rgba(255,255,255,0.7);*/
+          background-color: rgba(255, 247, 145, 1);
+
+          border-radius: 0.25em;
+          font-family: Helvetica Neue;
+      }
+
+      #footer a {
+          color: #222;
+      }
+
+    </style>
+  </head>
+  <body>
+    <input id="prompt" placeholder="enter prompt…" />
+    <div id="loading"><img src="/static/loading.svg" /></div>
+
+    <img id="img" src="" alt="" class="center">
+
+
+    <div id="footer">Built with 🚀 <a target="_blank" href="https://replicate.com/evilstreak/clipdraw-interactive">Replicate</a>, based on Kevin Frans' <a target="_blank" href="https://replicate.com/kvfrans/clipdraw">CLIPDraw</a></div>
+  </body>
+</html>

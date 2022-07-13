@@ -1,0 +1,12 @@
+click
+Flask
+matplotlib
+numpy
+opencv-python
+Pillow
+pyOpenSSL
+replicate
+requests
+urllib3
+packaging
+newsapi-python
