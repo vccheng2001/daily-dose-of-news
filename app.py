@@ -23,8 +23,8 @@ def index():
 def predict():
 
     body = request.get_json()
-    prompt = body['prompt']
-    print('body', body)
+    category = body['category']
+    print('category', category)
     # fetch model and version
     print('Fetching model and version......')
     model = replicate.models.get("mehdidc/feed_forward_vqgan_clip")
@@ -36,13 +36,13 @@ def predict():
     news_client = NewsAPIClient()
     print('Fetching news headlines.......')
     headlines = news_client.get_headlines()
-    headline = headlines[1]
+    headline = random.choice(headlines)
     print('Processing new headline......', headline)
 
     prediction = replicate.predictions.create(
             version=version,
             input={
-                "prompt":str(headline),
+                "prompt":headline,
                 "model": 'cc12m_32x1024_mlp_mixer_openclip_laion2b_ViTB32_256x256_v0.4.th',
                 "prior": False,
                 "grid": '1x1',

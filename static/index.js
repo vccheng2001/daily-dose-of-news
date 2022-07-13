@@ -1,4 +1,4 @@
-var prompt, promptValue, started, draw, svgPaths;
+var category, categoryValue, started, draw;
 var headline;
 
 window.onload = async function() {
@@ -8,11 +8,11 @@ window.onload = async function() {
     height: "100%",
   });
 
-  prompt = document.querySelector("#prompt");
-  prompt.onblur = changePrompt;
-  prompt.onkeypress = (e) => {
+  category = document.querySelector("#category");
+  category.onblur = changeCategory;
+  category.onkeypress = (e) => {
     if (e.code == "Enter") {
-      prompt.blur();
+      category.blur();
     }
   };
 }
@@ -20,30 +20,23 @@ window.onload = async function() {
 async function step(output) {
   try {
     resp = await startPrediction(output);
-    console.log('resp');
-    console.log(resp);
     const predictionID = resp['prediction_id'];
     const headline = resp['headline'];
-    console.log('headline');
-    console.log(headline);
-
     output = await waitForPrediction(predictionID);
   } catch (error) {
     started = false;
-    svgPaths = null;
     console.log("Caught error:", error);
     return;
   }
   step(output);
-  show_image(output, headline, 600,600, '');
+  show_image(output, headline);
 }
 
 async function startPrediction(paths) {
   var resp = await fetch("/api/predict", {
     method: "POST",
     body: JSON.stringify({
-      prompt: promptValue,
-      starting_paths: paths,
+      category: categoryValue,
     }),
     headers: {
       "Content-type": "application/json"
@@ -77,9 +70,10 @@ async function waitForPrediction(predictionID) {
 }
 
 
-function show_image(img, headline, width, height, alt) {
-
+function show_image(img, headline) {
+  
   document.getElementById("img").src=img;
+  console.log('headline');
   console.log(headline);
   document.getElementById("headline").innerHTML=headline;
 
@@ -94,9 +88,9 @@ function show_image(img, headline, width, height, alt) {
   // document.body.appendChild(img);
 }
 
-async function changePrompt() {
-  promptValue = prompt.value;
-  if (!started && promptValue) {
+async function changeCategory() {
+  categoryValue = category.value;
+  if (!started && categoryValue) {
     started = true;
     step();
     document.getElementById("loading").classList.add("shown");
