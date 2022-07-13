@@ -3,8 +3,23 @@
 } */
 
 #headerbox {
-    background-color: rgb(16, 0, 95);
+    background-color: #1e04a2;
     width:100%;
+    margin: 1em auto;
+
+}
+
+#url {
+    text-align:center;display:block;
+    font-size: 20;
+}
+
+#bodybox {
+    background-color: #ffffff;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
 
 }
 
@@ -26,7 +41,7 @@ div label {
     font-size: 25px;
     font-weight: 300;
     margin-left: 300px;
-    margin-top: 5px;
+    margin-top: 0px;
     color:white;
 }
 
@@ -40,7 +55,7 @@ div label {
     font-family: Helvetica Neue;
     font-size: 24px;
     font-weight: 300;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-bottom: 20px;
     /* margin-right: 150px; */
     margin-left: 250px;
@@ -56,13 +71,17 @@ div label {
     font-family: Helvetica Neue;
     font-size: 24px;
     font-weight: 300;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-bottom: 20px;
     margin-left: 250px;
     padding: 0.25em 0.5em;
     width: 66%;
 }
 
+#headline {
+    text-align: center;
+    font-size: 22;
+}
 #heading {
     /* background-color: rgba(255, 255, 255, 0.7); */
     /* border-radius: 0.25em;
@@ -71,7 +90,7 @@ div label {
     display: block;
     font-family: Helvetica Neue;
     font-size: 36px;
-    font-weight: 300;
+    font-weight: 340;
     margin: 1em auto;
     /* padding: 0.5em 0.5em; */
     width: 40%;

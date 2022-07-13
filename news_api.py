@@ -31,4 +31,5 @@ class NewsAPIClient:
             headline = article['title']
 
         url = article['url']            
-        return headline, src, url
+        description=article['description']
+        return headline, src, url, description

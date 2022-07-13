@@ -1,5 +1,5 @@
 var category, categoryValue, country, countryValue, started, draw;
-var headline, src, url;
+var headline, src, url, description;
 
 
 function doBoth() {
@@ -40,6 +40,7 @@ async function step(output) {
     headline = resp['headline'];
     src = resp['src'];
     url = resp['url'];
+    description=resp['description']
     output = await waitForPrediction(predictionID);
   } catch (error) {
     started = false;
@@ -66,8 +67,6 @@ async function startPrediction(paths) {
     throw new Error(resp.statusText);
   }
   resp = await resp.json();
-  console.log('resp');
-  console.log(resp);
   return resp;
 }
 
@@ -97,19 +96,11 @@ function show_image(img, headline, src, url) {
   document.getElementById("img").src=img;
   hl = document.getElementById("headline")
   hl.innerHTML=headline + " " + src;
-  hl.href = url;
+  document.getElementById("url").href = url;
+  document.getElementById("url").innerHTML = "View original article"
+  document.getElementById("description").innerHTML = description;
 
-  // hl.width="400px";
-  // hl.height="400px";
 
-  // var img = document.createElement("img");
-  // img.src = src;
-  // img.width = width;
-  // img.height = height;
-  // img.alt = alt;
-
-  // // This next line will just add it to the <body> tag
-  // document.body.appendChild(img);
 }
 
 async function changeCategory() {

@@ -40,7 +40,7 @@ def predict():
     print('Instantiating News API Client......')
     news_client = NewsAPIClient()
     print(f'Fetching news headlines for {category} category.......')
-    headline, src, url = news_client.get_headlines(category, country)
+    headline, src, url, description = news_client.get_headlines(category, country)
     print('Processing new headline......', headline)
 
     prediction = replicate.predictions.create(
@@ -53,7 +53,7 @@ def predict():
                 "seed": random.randint(0, 2**15-1),
             },
     )
-    return jsonify({"prediction_id": prediction.id, "headline":headline, "src":src, "url":url})
+    return jsonify({"prediction_id": prediction.id, "headline":headline, "src":src, "url":url, "description":description})
 
 
 @app.route("/api/predictions/<prediction_id>", methods=["GET"])
