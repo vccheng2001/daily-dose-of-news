@@ -1,0 +1,133 @@
+/* html {
+    background-color: #FCFCFA;
+} */
+
+#headerbox {
+    background-color: rgb(16, 0, 95);
+    width:100%;
+
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+
+div {
+    display: inline-block;
+
+}
+
+div label {
+    display: block;
+    font-family: Helvetica Neue;
+    font-size: 25px;
+    font-weight: 300;
+    margin-left: 300px;
+    margin-top: 5px;
+    color:white;
+}
+
+
+
+#category {
+    /* background-color: rgba(255, 255, 255, 0.7); */
+    border-radius: 0.25em;
+    border: 1px solid slategray;
+    display: block;
+    font-family: Helvetica Neue;
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    /* margin-right: 150px; */
+    margin-left: 250px;
+    padding: 0.25em 0.5em;
+    width: 66%;
+}
+
+#country {
+    /* background-color: rgba(255, 255, 255, 0.7); */
+    border-radius: 0.25em;
+    border: 1px solid slategray;
+    display: block;
+    font-family: Helvetica Neue;
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 250px;
+    padding: 0.25em 0.5em;
+    width: 66%;
+}
+
+#heading {
+    /* background-color: rgba(255, 255, 255, 0.7); */
+    /* border-radius: 0.25em;
+      border: 1px solid slategray; */
+    color: white;
+    display: block;
+    font-family: Helvetica Neue;
+    font-size: 36px;
+    font-weight: 300;
+    margin: 1em auto;
+    /* padding: 0.5em 0.5em; */
+    width: 40%;
+    
+}
+
+h2 {
+    color:white;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#loading {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 105px;
+    height: 105px;
+    margin-left: -52px;
+    margin-top: -52px;
+}
+
+#loading.shown {
+    display: block;
+}
+
+svg {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+#footer {
+    opacity: 0.8;
+    position: fixed;
+    width: 50%;
+    max-width: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px;
+
+    bottom: 10px;
+    text-align: center;
+    color: #555;
+    /*background-color: rgba(255,255,255,0.7);*/
+    background-color: rgba(255, 247, 145, 1);
+
+    border-radius: 0.25em;
+    font-family: Helvetica Neue;
+}
+
+#footer a {
+    color: #222;
+}

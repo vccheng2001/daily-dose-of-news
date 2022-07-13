@@ -8,147 +8,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js"></script>
   <script src="/static/index.js"></script>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
-  <style>
-    html {
-      background-color: #FCFCFA;
-    }
-
-    head {
-      background-color: rgb(201, 219, 255);
-
-    }
-
-    body,
-    html {
-      margin: 0;
-      padding: 0;
-    }
+  <link rel="stylesheet" href="static/index.css">
 
 
-
-    div {
-      display: inline-block;
-    }
-
-    div label {
-      display: block;
-      font-family: Helvetica Neue;
-      font-size: 25px;
-      font-weight: 350;
-      margin-left: 300px;
-      margin-top: 10px;
-    }
-
-    #demobox {
-      background-color: #cfc ;
-    }
-
-
-    #category {
-      background-color: rgba(255, 255, 255, 0.7);
-      border-radius: 0.25em;
-      border: 1px solid slategray;
-      display: block;
-      font-family: Helvetica Neue;
-      font-size: 24px;
-      font-weight: 300;
-      margin-top: 10px;
-      /* margin-bottom: 100px; */
-      /* margin-right: 150px; */
-      margin-left: 250px;
-      /* padding: 0.25em 0.5em; */
-      width: 66%;
-    }
-
-    #country {
-      background-color: rgba(255, 255, 255, 0.7);
-      border-radius: 0.25em;
-      border: 1px solid slategray;
-      display: block;
-      font-family: Helvetica Neue;
-      font-size: 24px;
-      font-weight: 300;
-      margin-top: 10px;
-      /* margin-bottom: 100px; */
-      margin-left: 250px;
-      /* padding: 0.25em 0.5em; */
-      width: 66%;
-    }
-
-    #heading {
-      background-color: rgba(255, 255, 255, 0.7);
-      /* border-radius: 0.25em;
-        border: 1px solid slategray; */
-      display: block;
-      font-family: Helvetica Neue;
-      font-size: 30px;
-      font-weight: 350;
-      margin: 1em auto;
-      /* padding: 0.5em 0.5em; */
-      width: 35%;
-    }
-
-    .center {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 50%;
-    }
-
-    #loading {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 105px;
-      height: 105px;
-      margin-left: -52px;
-      margin-top: -52px;
-    }
-
-    #loading.shown {
-      display: block;
-    }
-
-    svg {
-      position: absolute;
-      top: 0;
-      z-index: -1;
-    }
-
-    #footer {
-      opacity: 0.8;
-      position: fixed;
-      width: 50%;
-      max-width: 500px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 4px;
-
-      bottom: 10px;
-      text-align: center;
-      color: #555;
-      /*background-color: rgba(255,255,255,0.7);*/
-      background-color: rgba(255, 247, 145, 1);
-
-      border-radius: 0.25em;
-      font-family: Helvetica Neue;
-    }
-
-    #footer a {
-      color: #222;
-    }
-  </style>
-
-</head>
-
-<body>
-
-  <div id="headerbox">
-  
-  </div>
-  <h3 id="heading">Your Daily Dose of News 🗞 </h3>
+  <div id="headerbox"> 
+  <h2 id="heading"> 🗞 Your Daily Dose of News 🗞 </h2>
 
   <div>
     <label>category</label>
@@ -175,19 +39,25 @@
     </select>
   </div>
 
+</div>
+  
+</head>
+
+<body>
 
 
 
 
+
+  <div>
   <!-- <input id="category" placeholder="Choose news category (business, entertainment, general, health, science, sports, technology)"/> -->
-  <div id="loading"><img src="/static/loading.svg"></div>
+    <div id="loading"><img src="/static/loading.svg"></div>
 
-
-  <a class="center" id="headline" href=""></a>
-
-  <!-- <h5 id="headline" class="center"></h5> -->
-  <img id="img" src="" alt="" class="center">
-
+    <!-- <h2 id="headline"></h2> -->
+    <a class="center" id="headline" href=""></a>
+    <!-- <h5 id="headline" class="center"></h5> -->
+    <img id="img" src="" alt=""  class="center">
+  </div>
 
   <!-- <div id="footer">Built with 🚀 <a target="_blank" href="https://replicate.com/evilstreak/clipdraw-interactive">Replicate</a>, based on Kevin Frans' <a target="_blank" href="https://replicate.com/kvfrans/clipdraw">CLIPDraw</a></div> -->
 </body>
