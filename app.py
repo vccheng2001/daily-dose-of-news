@@ -23,8 +23,13 @@ def index():
 def predict():
 
     body = request.get_json()
+    print('BODY', body)
     category = body['category']
-    print('category', category)
+    country = body['country']
+
+    if country == "all":
+        country = None
+    print('category', category, 'country', country)
     # fetch model and version
     print('Fetching model and version......')
     model = replicate.models.get("mehdidc/feed_forward_vqgan_clip")
@@ -35,8 +40,7 @@ def predict():
     print('Instantiating News API Client......')
     news_client = NewsAPIClient()
     print(f'Fetching news headlines for {category} category.......')
-    headlines = news_client.get_headlines(category)
-    headline = random.choice(headlines)
+    headline, src, url = news_client.get_headlines(category, country)
     print('Processing new headline......', headline)
 
     prediction = replicate.predictions.create(
@@ -49,7 +53,7 @@ def predict():
                 "seed": random.randint(0, 2**15-1),
             },
     )
-    return jsonify({"prediction_id": prediction.id, "headline":headline})
+    return jsonify({"prediction_id": prediction.id, "headline":headline, "src":src, "url":url})
 
 
 @app.route("/api/predictions/<prediction_id>", methods=["GET"])

@@ -1,18 +1,34 @@
-var category, categoryValue, started, draw;
-var headline;
+var category, categoryValue, country, countryValue, started, draw;
+var headline, src, url;
+
+
+function doBoth() {
+  changeCategory();
+  changeCountry();
+}
+
 
 window.onload = async function() {
   draw = SVG().addTo('body').attr({
-    viewBox: "-30 -10 234 234",
+    viewBox: "-50 0 100 100",
     width: "100%",
     height: "100%",
   });
 
+    
   category = document.querySelector("#category");
-  category.onblur = changeCategory;
+  country = document.querySelector("#country");
+
+  category.onblur = doBoth;
+  country.onblur = doBoth;
   category.onkeypress = (e) => {
     if (e.code == "Enter") {
       category.blur();
+    }
+  };
+  country.onkeypress = (e) => {
+    if (e.code == "Enter") {
+      country.blur();
     }
   };
 }
@@ -22,6 +38,8 @@ async function step(output) {
     resp = await startPrediction(output);
     const predictionID = resp['prediction_id'];
     headline = resp['headline'];
+    src = resp['src'];
+    url = resp['url'];
     output = await waitForPrediction(predictionID);
   } catch (error) {
     started = false;
@@ -30,7 +48,7 @@ async function step(output) {
   }
   
   step(output);
-  show_image(output, headline);
+  show_image(output, headline, src, url);
 }
 
 async function startPrediction(paths) {
@@ -38,6 +56,7 @@ async function startPrediction(paths) {
     method: "POST",
     body: JSON.stringify({
       category: categoryValue,
+      country: countryValue,
     }),
     headers: {
       "Content-type": "application/json"
@@ -47,7 +66,9 @@ async function startPrediction(paths) {
     throw new Error(resp.statusText);
   }
   resp = await resp.json();
-  return resp;//["prediction_id"]]
+  console.log('resp');
+  console.log(resp);
+  return resp;
 }
 
 async function waitForPrediction(predictionID) {
@@ -71,13 +92,15 @@ async function waitForPrediction(predictionID) {
 }
 
 
-function show_image(img, headline) {
+function show_image(img, headline, src, url) {
   
   document.getElementById("img").src=img;
   hl = document.getElementById("headline")
-  hl.innerHTML=headline;
-  hl.width="300px";
-  hl.height="300px";
+  hl.innerHTML=headline + " " + src;
+  hl.href = url;
+
+  // hl.width="400px";
+  // hl.height="400px";
 
   // var img = document.createElement("img");
   // img.src = src;
@@ -91,7 +114,18 @@ function show_image(img, headline) {
 
 async function changeCategory() {
   categoryValue = category.value;
-  if (!started && categoryValue) {
+  countryValue = country.value;
+  if (!started && categoryValue && countryValue) {
+    started = true;
+    step();
+    document.getElementById("loading").classList.add("shown");
+  }
+}
+
+async function changeCountry() {
+  countryValue = country.value;
+  categoryValue = category.value;
+  if (!started && countryValue && categoryValue) {
     started = true;
     step();
     document.getElementById("loading").classList.add("shown");
