@@ -3,7 +3,7 @@ var headline;
 
 window.onload = async function() {
   draw = SVG().addTo('body').attr({
-    viewBox: "-10 -10 234 234",
+    viewBox: "-30 -10 234 234",
     width: "100%",
     height: "100%",
   });
@@ -28,8 +28,7 @@ async function step(output) {
     console.log("Caught error:", error);
     return;
   }
-  console.log('HEADLINE');
-  console.log(headline);
+  
   step(output);
   show_image(output, headline);
 }
@@ -75,10 +74,10 @@ async function waitForPrediction(predictionID) {
 function show_image(img, headline) {
   
   document.getElementById("img").src=img;
-  console.log('headline');
-  console.log(headline);
-  document.getElementById("headline").innerHTML=headline;
-
+  hl = document.getElementById("headline")
+  hl.innerHTML=headline;
+  hl.width="300px";
+  hl.height="300px";
 
   // var img = document.createElement("img");
   // img.src = src;
