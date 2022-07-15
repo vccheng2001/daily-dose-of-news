@@ -62,6 +62,8 @@ def get_prediction(prediction_id):
     output = None
     if prediction.output:
         print('pred out', prediction.output)
+        import time
+        time.sleep(10)
         # output = json.loads(prediction.output)
     return jsonify({"output": prediction.output, "status": prediction.status})
 

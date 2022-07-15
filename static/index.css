@@ -30,6 +30,7 @@ html {
 }
 
 
+
 div {
     display: inline-block;
 
@@ -80,7 +81,15 @@ div label {
 
 #headline {
     text-align: center;
-    font-size: 22;
+    font-size: 18;
+}
+
+#describe {
+    font-family: Helvetica Neue;
+    text-align: center;
+    font-size: 18;
+    font-weight: 300;
+    color: white;
 }
 #heading {
     /* background-color: rgba(255, 255, 255, 0.7); */

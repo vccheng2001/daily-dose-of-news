@@ -5,6 +5,8 @@ var headline, src, url, description;
 function doBoth() {
   changeCategory();
   changeCountry();
+  document.getElementById("loading").classList.add("shown");
+
 }
 
 
@@ -50,9 +52,11 @@ async function step(output) {
   
   step(output);
   show_image(output, headline, src, url);
+  
 }
 
 async function startPrediction(paths) {
+  console.log('calling startPrediction')
   var resp = await fetch("/api/predict", {
     method: "POST",
     body: JSON.stringify({
@@ -82,7 +86,7 @@ async function waitForPrediction(predictionID) {
       case "canceled":
         throw new Error("Prediction " + status);
       case "starting":
-        await new Promise(r => setTimeout(r, 1000));
+        await new Promise(r => setTimeout(r, 10000));
         break;
       default:
         await new Promise(r => setTimeout(r, 100));
@@ -92,6 +96,8 @@ async function waitForPrediction(predictionID) {
 
 
 function show_image(img, headline, src, url) {
+  document.getElementById("loading").classList.remove("shown");
+
   
   document.getElementById("img").src=img;
   hl = document.getElementById("headline")
@@ -122,22 +128,3 @@ async function changeCountry() {
     document.getElementById("loading").classList.add("shown");
   }
 }
-
-// function strokeColorToSVGStroke(strokeColor) {
-//   return "rgb(" + strokeColor.slice(0, 3).map(c => Math.floor(c * 255)).join(",") + ")";
-// }
-
-// function pathToSVGPathString(path) {
-//   const points = path.points;
-//   var s = "M " + points[0][0] + " " + points[0][1];
-//   for (var i = 0; i < path.num_control_points.length; i++) {
-//     s += " C"
-//       + " " + points[i * 3 + 1][0]
-//       + " " + points[i * 3 + 1][1]
-//       + " " + points[i * 3 + 2][0]
-//       + " " + points[i * 3 + 2][1]
-//       + " " + points[i * 3 + 3][0]
-//       + " " + points[i * 3 + 3][1];
-//   }
-//   return s;
-// }
