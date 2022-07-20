@@ -18,10 +18,15 @@ class NewsAPIClient:
 
         
         resp = self.newsapi.get_top_headlines(category=category,
-                                                language='en',
+                                                # language='en',
                                                 country=country)
 
         import random 
+
+        # No headlines found
+        if not resp['articles']:
+            return None
+
         article = random.choice(resp['articles'])
     
         src = ''

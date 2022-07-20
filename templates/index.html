@@ -11,58 +11,58 @@
   <link rel="stylesheet" href="static/index.css">
 
 
-  <div id="headerbox"> 
-  <h2 id="heading"> 🗞 Your Daily Dose of News 🗞 </h2>
-  <h5 id="describe"> AI-generated visualizations of today's top headlines </h5>
+  <div id="headerbox">
+    <h2 id="heading"> 🗞 Your Daily Dose of News 🗞 </h2>
+    <h6 id="subheading"> AI-generated visualizations of today's top headlines </h6>
 
-  <div>
-    <label>category</label>
-    <select id="category">
-      <option selected="selected">general</option>
-      <option>business</option>
-      <option>entertainment</option>
-      <option>health</option>
-      <option>science</option>
-      <option>sports</option>
-      <option>technology</option>
-    </select>
-  </div>
-  <div>
-    <label>country</label>
-    <select id="country">
-      <option selected="selected">all</option>
-      <option>us</option>
-      <option>fr</option>
-      <option>ru</option>
-      <option>jp</option>
-      <option>ve</option>
-      <option>za</option>
-    </select>
+
+    <!-- Select country, category -->
+    <div class="form-line">
+      <label id="categorylabel">category</label>
+      <select id="category">
+        <option selected="selected">general</option>
+        <option>business</option>
+        <option>entertainment</option>
+        <option>health</option>
+        <option>science</option>
+        <option>sports</option>
+        <option>technology</option>
+      </select>
+
+      <label id="countrylabel">country</label>
+      <select id="country">
+        <option selected="selected">all</option>
+        <option>us</option>
+        <option>fr</option>
+        <option>ru</option>
+        <option>jp</option>
+        <option>ve</option>
+        <option>za</option>
+      </select>
+
+
+    </div>
   </div>
 
-</div>
-  
 </head>
 
 <body>
 
 
-
-
-
+  <!-- Show news article -->
   <div id="bodybox">
-  <!-- <input id="category" placeholder="Choose news category (business, entertainment, general, health, science, sports, technology)"/> -->
     <div id="loading"><img src="/static/loading.svg"></div>
-
-    <!-- <h2 id="headline"></h2> -->
     <h3 id="headline"></h3>
     <a class="center" id="url" href=""></a>
     <p id="description"></p>
-    <!-- <h5 id="headline" class="center"></h5> -->
-    <img id="img" src="" alt=""  class="center">
+    <img id="img" src="" alt="" class="center">
   </div>
 
-  <!-- <div id="footer">Built with 🚀 <a target="_blank" href="https://replicate.com/evilstreak/clipdraw-interactive">Replicate</a>, based on Kevin Frans' <a target="_blank" href="https://replicate.com/kvfrans/clipdraw">CLIPDraw</a></div> -->
+  <!-- Footer -->
+  <div id="footer">Built with 🚀 <a target="_blank"
+      href="https://replicate.com/mehdidc/feed_forward_vqgan_clip">Replicate</a>, based on Mehdi Cherti's <a
+      target="_blank" href="https://replicate.com/mehdidc/feed_forward_vqgan_clip">Feed forward VQGAN-CLIP</a>
+  </div>
 </body>
 
 </html>
