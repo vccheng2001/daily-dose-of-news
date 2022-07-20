@@ -17,6 +17,13 @@ window.onload = async function() {
     height: "100%",
   });
 
+  // var options = "";
+  // for(var y=year; y<=till; y++){
+  //   options += "<option>"+ y +"</option>";
+  // }
+  // document.getElementById("country").innerHTML = options;
+
+
     
   category = document.querySelector("#category");
   country = document.querySelector("#country");
@@ -100,11 +107,13 @@ async function waitForPrediction(predictionID) {
 
 function show_image(img, headline, src, url) {
   document.getElementById("loading").classList.remove("shown");
-
-  
   document.getElementById("img").src=img;
   hl = document.getElementById("headline")
-  hl.innerHTML=headline + " " + src;
+  if (src != "") {
+    hl.innerHTML = headline + " - " + src;
+  } else {
+    hl.innerHTML=headline;
+  }
   document.getElementById("url").href = url;
   document.getElementById("url").innerHTML = "View original article"
   document.getElementById("description").innerHTML = description;

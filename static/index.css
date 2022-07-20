@@ -3,6 +3,7 @@
     width: 100%;
     margin: 1em auto;
     height: 170px;
+    opacity:90%;
 
 }
 
@@ -94,7 +95,7 @@ div #categorylabel {
     margin-top: 20px;
     margin-bottom: 10px;
     margin-right:5px;
-    color: rgb(255, 255, 255);
+    color: rgb(42,42,42);
 }
 
 div #countrylabel {
@@ -107,7 +108,7 @@ div #countrylabel {
     margin-top: 20px;
     margin-bottom: 10px;
     margin-right:5px;
-    color: rgb(255, 255, 255);
+    color: rgb(42,42,42);
 }
 
 /* News display */
@@ -137,7 +138,7 @@ div #countrylabel {
     font-size: 15;
     font-weight: 100;
     margin-bottom: 25px;
-    color: rgb(236, 236, 236);
+    color: rgb(42, 42, 42);
 }
 
 
@@ -194,7 +195,6 @@ svg {
 
 /* Error*/
 #error {
-    margin-top: 100px;
     text-align: center;
     font-family: monospace; 
     font-size:20px;
