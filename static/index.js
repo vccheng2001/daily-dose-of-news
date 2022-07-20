@@ -81,8 +81,11 @@ async function waitForPrediction(predictionID) {
     const status = resp["status"]
     switch (status) {
       case "succeeded":
+        document.getElementById("error").innerHTML = "";
         return resp["output"];
       case "failed":
+        console.log('Error');
+        document.getElementById("error").innerHTML = "No articles found :( try another query!";
       case "canceled":
         throw new Error("Prediction " + status);
       case "starting":

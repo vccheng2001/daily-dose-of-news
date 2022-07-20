@@ -2,7 +2,7 @@
     background-color: #a594f7;
     width: 100%;
     margin: 1em auto;
-    height: 150px;
+    height: 170px;
 
 }
 
@@ -64,12 +64,15 @@ h2 {
     padding: 0.25em 0.5em;
 }
 
-
+#description {
+    text-align: center;
+}
 
 #country {
     position: fixed;
     left: 60%;
     width: 25%;
+
     border-radius: 0.25em;
     border: 1px solid slategray;
     display: inline-block;
@@ -111,7 +114,7 @@ div #countrylabel {
 
 #headline {
     text-align: center;
-    font-size: 18;
+    font-size: 15;
 
 }
 
@@ -187,6 +190,14 @@ svg {
     border-radius: 0.25em;
     font-family: monospace; 
     font-size:15px;
+}
+
+/* Error*/
+#error {
+    margin-top: 100px;
+    text-align: center;
+    font-family: monospace; 
+    font-size:20px;
 }
 
 #footer a {

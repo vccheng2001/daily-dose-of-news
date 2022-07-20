@@ -43,26 +43,24 @@ def predict():
     result = news_client.get_headlines(category, country)
     
     if not result:
-        print('No articles found! Try a different search query.')
-
+        headline, src, url, description = None, None, None, None
     else:
-
         headline, src, url, description = result
 
 
-        print('Processing new headline......', headline)
+    print('Processing new headline......', headline)
 
-        prediction = replicate.predictions.create(
-                version=version,
-                input={
-                    "prompt":headline,
-                    "model": 'cc12m_32x1024_mlp_mixer_openclip_laion2b_ViTB32_256x256_v0.4.th',
-                    "prior": False,
-                    "grid": '1x1',
-                    "seed": random.randint(0, 2**15-1),
-                },
-        )
-        return jsonify({"prediction_id": prediction.id, "headline":headline, "src":src, "url":url, "description":description})
+    prediction = replicate.predictions.create(
+            version=version,
+            input={
+                "prompt":headline,
+                "model": 'cc12m_32x1024_mlp_mixer_openclip_laion2b_ViTB32_256x256_v0.4.th',
+                "prior": False,
+                "grid": '1x1',
+                "seed": random.randint(0, 2**15-1),
+            },
+    )
+    return jsonify({"prediction_id": prediction.id, "headline":headline, "src":src, "url":url, "description":description})
 
 
 @app.route("/api/predictions/<prediction_id>", methods=["GET"])
