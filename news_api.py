@@ -6,10 +6,11 @@
 from newsapi import NewsApiClient
 import random 
 
+NEWS_API_TOKEN = 'e25a9e9464ef429798ba3a56ac9fcd70'
 
 class NewsAPIClient:
-    def __init__(self, api_key='e25a9e9464ef429798ba3a56ac9fcd70'):
-        self.newsapi = NewsApiClient(api_key=api_key)
+    def __init__(self, NEWS_API_TOKEN):
+        self.newsapi = NewsApiClient(api_key=NEWS_API_TOKEN )
 
     def get_headlines(self, category, country):
         print('Your Daily Dose of News')

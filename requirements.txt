@@ -2,7 +2,6 @@ click
 Flask
 matplotlib
 numpy
-opencv-python
 Pillow
 pyOpenSSL
 replicate
