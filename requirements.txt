@@ -1,8 +1,6 @@
 click
 Flask
-matplotlib
 numpy
-Pillow
 pyOpenSSL
 replicate
 requests
