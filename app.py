@@ -10,6 +10,7 @@ from flask import (
 import random 
 from news_api import NewsAPIClient
 
+NEWS_API_TOKEN = 'e25a9e9464ef429798ba3a56ac9fcd70'
 
 app = Flask(__name__)
 
@@ -40,7 +41,7 @@ def predict():
     )
     # Instantiate news API client
     print('Instantiating News API Client......')
-    news_client = NewsAPIClient()
+    news_client = NewsAPIClient(NEWS_API_TOKEN = NEWS_API_TOKEN)
     print(f'Fetching news headlines for {category} category.......')
     result = news_client.get_headlines(category, country)
     

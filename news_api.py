@@ -6,7 +6,6 @@
 from newsapi import NewsApiClient
 import random 
 
-NEWS_API_TOKEN = 'e25a9e9464ef429798ba3a56ac9fcd70'
 
 class NewsAPIClient:
     def __init__(self, NEWS_API_TOKEN):
