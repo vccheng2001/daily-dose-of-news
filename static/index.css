@@ -61,7 +61,7 @@ h2 {
     font-size: 20px;
     font-weight: 300;
     margin-top: 25px;
-    margin-bottom: 10px; 
+    margin-bottom: 5px; 
     padding: 0.25em 0.5em;
 }
 
@@ -81,7 +81,7 @@ h2 {
     font-size: 20px;
     font-weight: 300;
     margin-top: 25px;
-    margin-bottom: 10px; 
+    margin-bottom: 5px; 
     padding: 0.25em 0.5em;
 }
 
@@ -93,7 +93,7 @@ div #categorylabel {
     font-size: 20px;
     font-weight: 300;
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     margin-right:5px;
     color: rgb(42,42,42);
 }
@@ -106,7 +106,7 @@ div #countrylabel {
     font-size: 20px;
     font-weight: 300;
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     margin-right:5px;
     color: rgb(42,42,42);
 }
@@ -198,6 +198,9 @@ svg {
     text-align: center;
     font-family: monospace; 
     font-size:20px;
+    left:25%;
+    width:50%;
+    visibility: hidden;
 }
 
 #footer a {

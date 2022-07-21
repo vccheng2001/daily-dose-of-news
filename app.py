@@ -23,13 +23,14 @@ def index():
 def predict():
 
     body = request.get_json()
-    print('BODY', body)
     category = body['category']
     country = body['country']
 
     if country == "all":
         country = None
-    print('category', category, 'country', country)
+    else:
+        country = country.split(' ')[0]
+    print('Category: ', category, 'Country:', country)
     # fetch model and version
     print('Fetching model and version......')
     model = replicate.models.get("mehdidc/feed_forward_vqgan_clip")

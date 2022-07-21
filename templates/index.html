@@ -8,6 +8,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js"></script>
   <script src="/static/index.js"></script>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="static/index.css">
 
 
@@ -31,35 +33,9 @@
 
       <label id="countrylabel">country</label>
       <select id="country">
-        <option selected="selected">all</option>
-        <option>us</option>
-        <option>fr</option>
-        <option>ru</option>
-        <option>jp</option>
-        <option>ve</option>
-        <option>za</option>
-        <option>ar</option>
-        <option>gr</option>
-        <option>nl</option>
-        <option>za</option>
-        <option>au</option>
-        <option>hk</option>
-        <option>nz</option>
-        <option>kr</option>
-        <option>at</option>
-        <option>hu</option>
-        <option>ng</option>
-        <option>se</option>
-        <option>be</option>
-        <option>in</option>
-        <option>no</option>
-        <option>ch</option>
-        <option>br</option>
-        <option>id</option>
-        <option>ph</option>
-        <option>tw</option>
       </select>
 
+      
 
     </div>
   </div>
@@ -67,8 +43,10 @@
 </head>
 
 <body>
+  <div id="error" class="alert alert-warning" role="alert">
+  </div>
 
-  <h3 id="error"></h3>
+
 
   <!-- Show news article -->
   <div id="bodybox">

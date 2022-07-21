@@ -17,11 +17,27 @@ window.onload = async function() {
     height: "100%",
   });
 
-  // var options = "";
-  // for(var y=year; y<=till; y++){
-  //   options += "<option>"+ y +"</option>";
-  // }
-  // document.getElementById("country").innerHTML = options;
+  var countries = ['all', 'us (United States)',  'ar (Argentina)',
+  'at (Austria)','au (Australia)','be (Belgium)','bg (Brazil)',
+  'br (Bulgaria)', 'ca (Canada)', 'cn (China)',
+  'co (Colombia)', 'cu (Cuba)', 'cz (Czech Republic)','de (Germany)',
+  'eg (Egypt)', 'fr (France)','gb (United Kingdom)','gr (Greece)', 
+  'hk (Hong Kong)','hu (Hungary)', 'id (Indonesia)','ie (Ireland)',
+  'il (Israel)','in (India)','it (Italy)','jp (Japan)',
+  'kr (Korea)','lt (Lithuania)','lv (Latvia)', 'ma (Morocco)',
+  'mx (Mexico)','my (Malaysia)','ng (Nigeria)',
+  'nl (Netherlands)', 'no (Norway)','nz (New Zealand)', 'ph (Philippines)', 'pl (Poland)',
+  'pt (Portugal)', 'ro (Romania)', 'rs (Serbia)', 'ru (Russia)', 
+  'sa (Saudi Arabia)', 'se (Sweden)', 'sg (Singapore)', 'si (Slovenia)',
+  'sk (Slovakia)', 'th (Thailand)','tr (Turkey)', 'tw (Taiwan)', 'ua (UAE)', 
+  've (Venezuela)', 'za (South Africa)' ];
+  
+  var options = "";
+  // options += "<option selected="selected">all</option>"
+  for(var i = 0; i < countries.length; i++){
+    options += "<option>"+ countries[i] +"</option>";
+  }
+  document.getElementById("country").innerHTML = options;
 
 
     
@@ -89,11 +105,16 @@ async function waitForPrediction(predictionID) {
     switch (status) {
       case "succeeded":
         document.getElementById("error").innerHTML = "";
+        document.getElementById("error").style.visibility="hidden";
+        document.getElementById("bodybox").style.visibility="visible"; // show news
+
         return resp["output"];
       case "failed":
         console.log('Error');
-        document.getElementById("error").innerHTML = "No articles found :( try another query!";
-      case "canceled":
+        document.getElementById("error").innerHTML = "No articles found at the moment :( try another query!";
+        document.getElementById("error").style.visibility="visible";
+        document.getElementById("bodybox").style.visibility="hidden"; // hide news
+        case "canceled":
         throw new Error("Prediction " + status);
       case "starting":
         await new Promise(r => setTimeout(r, 10000));
