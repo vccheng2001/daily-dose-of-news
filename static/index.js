@@ -107,7 +107,6 @@ async function waitForPrediction(predictionID) {
         document.getElementById("error").innerHTML = "";
         document.getElementById("error").style.visibility="hidden";
         document.getElementById("bodybox").style.visibility="visible"; // show news
-
         return resp["output"];
       case "failed":
         console.log('Error');
@@ -117,7 +116,7 @@ async function waitForPrediction(predictionID) {
         case "canceled":
         throw new Error("Prediction " + status);
       case "starting":
-        await new Promise(r => setTimeout(r, 10000));
+        await new Promise(r => setTimeout(r, 1000));
         break;
       default:
         await new Promise(r => setTimeout(r, 100));
@@ -129,6 +128,8 @@ async function waitForPrediction(predictionID) {
 function show_image(img, headline, src, url) {
   document.getElementById("loading").classList.remove("shown");
   document.getElementById("img").src=img;
+
+
   hl = document.getElementById("headline")
   if (src != "") {
     hl.innerHTML = headline + " - " + src;

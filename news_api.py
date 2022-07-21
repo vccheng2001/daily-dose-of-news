@@ -4,8 +4,8 @@
 '''
 
 from newsapi import NewsApiClient
+import random 
 
-# Init
 
 class NewsAPIClient:
     def __init__(self, api_key='587795fb1b534cc0abf064cacc8a124c'):
@@ -20,8 +20,6 @@ class NewsAPIClient:
         resp = self.newsapi.get_top_headlines(category=category,
                                                 # language='en',
                                                 country=country)
-
-        import random 
 
         # No headlines found
         if not resp['articles']:

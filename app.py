@@ -13,44 +13,45 @@ from news_api import NewsAPIClient
 
 app = Flask(__name__)
 
-
+# Render index page
 @app.route("/")
 def index():
     return render_template("index.html")
 
 
+# Predict
 @app.route("/api/predict", methods=["POST"])
 def predict():
-
     body = request.get_json()
     category = body['category']
     country = body['country']
 
-    if country == "all":
-        country = None
-    else:
-        country = country.split(' ')[0]
+    if country == "all": 
+        country = None # all countries
+    else: 
+        country = country.split(' ')[0] # get country abbreviation
+
+    # Get model
     print('Category: ', category, 'Country:', country)
-    # fetch model and version
     print('Fetching model and version......')
     model = replicate.models.get("mehdidc/feed_forward_vqgan_clip")
     version = model.versions.get(
         "28b5242dadb5503688e17738aaee48f5f7f5c0b6e56493d7cf55f74d02f144d8"
     )
-    # instantiate news API client
+    # Instantiate news API client
     print('Instantiating News API Client......')
     news_client = NewsAPIClient()
     print(f'Fetching news headlines for {category} category.......')
     result = news_client.get_headlines(category, country)
     
+    # Result
     if not result:
         headline, src, url, description = None, None, None, None
     else:
         headline, src, url, description = result
+        print('Processing new headline......', headline)
 
-
-    print('Processing new headline......', headline)
-
+    # Create repliation prediction object
     prediction = replicate.predictions.create(
             version=version,
             input={
@@ -63,16 +64,16 @@ def predict():
     )
     return jsonify({"prediction_id": prediction.id, "headline":headline, "src":src, "url":url, "description":description})
 
-
+# Get prediction by its ID
 @app.route("/api/predictions/<prediction_id>", methods=["GET"])
 def get_prediction(prediction_id):
     prediction = replicate.predictions.get(prediction_id)
     output = None
+    
     if prediction.output:
-        print('pred out', prediction.output)
+        print('Prediction output', prediction.output)
         import time
         time.sleep(10)
-        # output = json.loads(prediction.output)
     return jsonify({"output": prediction.output, "status": prediction.status})
 
 
