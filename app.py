@@ -73,7 +73,7 @@ def get_prediction(prediction_id):
     if prediction.output:
         print('Prediction output', prediction.output)
         import time
-        time.sleep(10)
+        time.sleep(5)
     return jsonify({"output": prediction.output, "status": prediction.status})
 
 

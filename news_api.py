@@ -8,7 +8,7 @@ import random
 
 
 class NewsAPIClient:
-    def __init__(self, api_key='587795fb1b534cc0abf064cacc8a124c'):
+    def __init__(self, api_key='e25a9e9464ef429798ba3a56ac9fcd70'):
         self.newsapi = NewsApiClient(api_key=api_key)
 
     def get_headlines(self, category, country):

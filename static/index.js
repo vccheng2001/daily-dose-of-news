@@ -38,6 +38,7 @@ window.onload = async function() {
     options += "<option>"+ countries[i] +"</option>";
   }
   document.getElementById("country").innerHTML = options;
+  document.getElementById("newsbox").style.visibility="hidden";
 
 
     
@@ -107,6 +108,8 @@ async function waitForPrediction(predictionID) {
         document.getElementById("error").innerHTML = "";
         document.getElementById("error").style.visibility="hidden";
         document.getElementById("bodybox").style.visibility="visible"; // show news
+        document.getElementById("newsbox").style.visibility="visible";
+
         return resp["output"];
       case "failed":
         console.log('Error');
@@ -126,18 +129,22 @@ async function waitForPrediction(predictionID) {
 
 
 function show_image(img, headline, src, url) {
+  // loading icon
   document.getElementById("loading").classList.remove("shown");
+  // image
   document.getElementById("img").src=img;
-
-
+  // headline
   hl = document.getElementById("headline")
   if (src != "") {
     hl.innerHTML = headline + " - " + src;
   } else {
     hl.innerHTML=headline;
   }
-  document.getElementById("url").href = url;
-  document.getElementById("url").innerHTML = "View original article"
+  // set button URL
+  console.log(url);
+  document.getElementById("url").innerHTML = "View original article";
+  document.getElementById("url").href = url; 
+  // description
   document.getElementById("description").innerHTML = description;
 
 
