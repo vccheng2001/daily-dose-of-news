@@ -3,13 +3,13 @@
 Hi! I'm Vivian from Replicate. 
 Today I'll be showing you how to use Replicate's API to visualize today's top news headlines with AI.
 
-:star: [Website](https://daily-dose-of-news.vercel.app/) | :computer: [Repo](https://github.com/vccheng2001/daily-dose-of-news) | :rocket: [Model on Replicate](https://replicate.com/mehdidc/feed_forward_vqgan_clip)
+:star: [Website](https://daily-dose-of-news-vccheng2001.vercel.app/) | :computer: [Repo](https://github.com/vccheng2001/daily-dose-of-news) | :rocket: [Model on Replicate](https://replicate.com/mehdidc/feed_forward_vqgan_clip)
 
 ## Overview
 
 ![Demo](images/demo.gif)
 
-[Daily Dose of News](https://daily-dose-of-news.vercel.app/) is an interactive, easy-to-use news feed that renders AI-generated visualizations of today's top headlines using the [Feedforward VQGAN-CLIP model](https://replicate.com/mehdidc/feed_forward_vqgan_clip). 
+[Daily Dose of News](https://daily-dose-of-news-vccheng2001.vercel.app/) is an interactive, easy-to-use news feed that renders AI-generated visualizations of today's top headlines using the [Feedforward VQGAN-CLIP model](https://replicate.com/mehdidc/feed_forward_vqgan_clip). 
 
 VQGAN-CLIP is capable of producing high-quality images from complex text without any training by using a multimodal encoder to guide image generations; you can find the original Github repo [here.](https://github.com/mehdidc/feed_forward_vqgan_clip)
 
