@@ -17,20 +17,22 @@ window.onload = async function() {
     height: "100%",
   });
 
-  var countries = ['all', 'us (United States)',  'ar (Argentina)',
-  'at (Austria)','au (Australia)','be (Belgium)','bg (Brazil)',
-  'br (Bulgaria)', 'ca (Canada)', 'cn (China)',
-  'co (Colombia)', 'cu (Cuba)', 'cz (Czech Republic)','de (Germany)',
-  'eg (Egypt)', 'fr (France)','gb (United Kingdom)','gr (Greece)', 
-  'hk (Hong Kong)','hu (Hungary)', 'id (Indonesia)','ie (Ireland)',
-  'il (Israel)','in (India)','it (Italy)','jp (Japan)',
-  'kr (Korea)','lt (Lithuania)','lv (Latvia)', 'ma (Morocco)',
-  'mx (Mexico)','my (Malaysia)','ng (Nigeria)',
-  'nl (Netherlands)', 'no (Norway)','nz (New Zealand)', 'ph (Philippines)', 'pl (Poland)',
-  'pt (Portugal)', 'ro (Romania)', 'rs (Serbia)', 'ru (Russia)', 
-  'sa (Saudi Arabia)', 'se (Sweden)', 'sg (Singapore)', 'si (Slovenia)',
-  'sk (Slovakia)', 'th (Thailand)','tr (Turkey)', 'tw (Taiwan)', 'ua (UAE)', 
-  've (Venezuela)', 'za (South Africa)' ];
+  // var countries = ['all', 'us (United States)',  'ar (Argentina)',
+  // 'at (Austria)','au (Australia)','be (Belgium)','bg (Brazil)',
+  // 'br (Bulgaria)', 'ca (Canada)', 'cn (China)',
+  // 'co (Colombia)', 'cu (Cuba)', 'cz (Czech Republic)','de (Germany)',
+  // 'eg (Egypt)', 'fr (France)','gb (United Kingdom)','gr (Greece)', 
+  // 'hk (Hong Kong)','hu (Hungary)', 'id (Indonesia)','ie (Ireland)',
+  // 'il (Israel)','in (India)','it (Italy)','jp (Japan)',
+  // 'kr (Korea)','lt (Lithuania)','lv (Latvia)', 'ma (Morocco)',
+  // 'mx (Mexico)','my (Malaysia)','ng (Nigeria)',
+  // 'nl (Netherlands)', 'no (Norway)','nz (New Zealand)', 'ph (Philippines)', 'pl (Poland)',
+  // 'pt (Portugal)', 'ro (Romania)', 'rs (Serbia)', 'ru (Russia)', 
+  // 'sa (Saudi Arabia)', 'se (Sweden)', 'sg (Singapore)', 'si (Slovenia)',
+  // 'sk (Slovakia)', 'th (Thailand)','tr (Turkey)', 'tw (Taiwan)', 'ua (UAE)', 
+  // 've (Venezuela)', 'za (South Africa)' ];
+
+  var countries = ['all', 'us (United States)', 'au (Australia)', 'ca (Canada)', 'gb (United Kingdom)'];
   
   var options = "";
   // options += "<option selected="selected">all</option>"
