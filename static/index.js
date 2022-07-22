@@ -116,6 +116,8 @@ async function waitForPrediction(predictionID) {
         document.getElementById("error").innerHTML = "No articles found at the moment :( try another query!";
         document.getElementById("error").style.visibility="visible";
         document.getElementById("bodybox").style.visibility="hidden"; // hide news
+        document.getElementById("newsbox").style.visibility="hidden"; // hide news
+
         case "canceled":
         throw new Error("Prediction " + status);
       case "starting":
