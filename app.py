@@ -9,8 +9,9 @@ from flask import (
 )
 import random 
 from news_api import NewsAPIClient
+import os
 
-NEWS_API_TOKEN = 'e25a9e9464ef429798ba3a56ac9fcd70'
+NEWS_API_TOKEN = os.getenv('NEWS_API_TOKEN')
 
 app = Flask(__name__)
 

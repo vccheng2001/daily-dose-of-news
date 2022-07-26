@@ -91,5 +91,16 @@ export NEWS_API_TOKEN=<my-news-api-token>
 Finally, run ```python app.py``` and open https://localhost:5000.
 
 
+
+## Deployment 
+
+To deploy onto Vercel, create a ```vercel.json``` file 
+to configure your root directory/main program script to ```app.py```. See more [here](https://vercel.com/docs/project-configuration).
+
+Create an account on Vercel; click "New Project" and 
+configure from an existing Git repo/commit. Make
+sure to set Environment Variables under "Project Settings" (in this case, ```NEWS_API_TOKEN``` and ```REPLICATE_API_TOKEN```) before deploying.
+
+
 Thanks for tuning in, and feel free to try out your own models! If you have any questions, ping us on
 [Discord](https://discord.com/channels/775512803439280149/775513324082823198) or find us on [Replicate](https://replicate.com/) :rocket:.
