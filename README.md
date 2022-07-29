@@ -2,7 +2,7 @@
 
 :star: [Website](https://daily-dose-of-news-vccheng2001.vercel.app/) | :computer: [Repo](https://github.com/vccheng2001/daily-dose-of-news) | :rocket: [Model on Replicate](https://replicate.com/mehdidc/feed_forward_vqgan_clip)
 
-_An interactive news feed that renders AI-generated visualizations of today's top headlines. The visualizations are generated using [Feedforward VQGAN-CLIP model](https://replicate.com/mehdidc/feed_forward_vqgan_clip) on [Replicate](https://replicate.com)._ 
+_An interactive news feed that renders AI-generated visualizations of today's top headlines. The visualizations are generated using [VQGAN-CLIP](https://replicate.com/mehdidc/feed_forward_vqgan_clip) on [Replicate](https://replicate.com)._ 
 
 ![Demo](images/demo.gif)
 
@@ -59,6 +59,8 @@ You'll also need to generate a [NewsAPI token](https://newsapi.org/) to run the 
 
 ### Step 5: Set your environment variables
 
+You can simply set your environment variables in the command line to get the app running locally.
+
 ```sh
 export REPLICATE_API_TOKEN=<my-replicate-api-token>
 export NEWS_API_TOKEN=<my-news-api-token>
@@ -81,7 +83,7 @@ Create an account on Vercel. You can create an account through your GitHub accou
 ### Step 9: Deploy on Vercel
 
 If you've created a new account, you'll be prompted to import a third-party GitHub repository. Insert https://github.com/vccheng2001/daily-dose-of-news.
-re
+
 ![third party github](assets/third-party.png)
 
 Then, create a GitHub repository to ensure that you can easily update the project after deploying it.
@@ -92,7 +94,7 @@ Vercel will then automatically deploy the project.
 
 ![deploy on vercel](assets/vercel-deploy.png)
 
-Make sure to set Environment Variables under "Project Settings" (in this case, ```NEWS_API_TOKEN``` and ```REPLICATE_API_TOKEN```) before deploying. 
+Even though Vercel automatically deployed the project, the environment variables still aren't set. Make sure to set Environment Variables under "Project Settings" (in this case, ```NEWS_API_TOKEN``` and ```REPLICATE_API_TOKEN```). 
 
 ![set env variables on vercel](assets/env-vercel.png)
 
